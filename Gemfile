@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'devise'
+gem 'thin'
+
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'erb2haml', :group => :development
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
