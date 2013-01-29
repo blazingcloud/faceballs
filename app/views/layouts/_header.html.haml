@@ -1,7 +1,8 @@
 %header.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to "Faceballs", root_path, id: "logo"
+      = link_to root_path, id: "logo" do 
+        %span{"data-mercury" => "simple"} Faceballs
       %nav
         %ul.nav.pull-right
           - if signed_in?

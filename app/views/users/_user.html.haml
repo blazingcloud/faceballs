@@ -1,5 +1,12 @@
 .faceball
   .gravatar
     = facebook_profile_image_tag(user.username + '.jpg', :width => user.radius, :height => user.radius, :crop => :fill, :gravity => :north_west, :radius => 'max', :alt => "facebook_profile")
-  .username
+  #username{"data-mercury" => "simple"}
     = user.username.titleize
+  #radius{"data-mercury" => "simple"}
+    = user.radius
+  %span#content-span{"data-mercury" => "full"}
+    hola edit me please
+  %div#content-div{"data-mercury" => "full"}
+    edit this div too
+

@@ -1,3 +1,5 @@
 %footer.footer
   %small
     %a{:href => "http://www.blazingcloud.net/"} Blazing Cloud
+    = " | "
+    =link_to "Edit Page", "/editor" + request.path, id: "edit_link"

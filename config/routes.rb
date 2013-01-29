@@ -1,4 +1,10 @@
 Faceballs::Application.routes.draw do
+    namespace :mercury do
+      resources :images
+    end
+
+  mount Mercury::Engine => '/'
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   # The priority is based upon order of creation:

@@ -107,8 +107,13 @@ footer {
   @include my_box_sizing;
 }
 
+form label {
+  font-weight: bold;
+}
+
 .faceball{}
 .gravatar{
   display: block;
 }
-.username{}
+#username{ font-weight: bold; }
+#radius{ color: blue; }

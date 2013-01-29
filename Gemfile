@@ -5,8 +5,6 @@ gem 'thin'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'mercury-rails'
-
-
 gem 'devise'
 #gem 'omniauth'
 #gem 'omniauth-facebook'
@@ -67,3 +65,4 @@ end
 
 # To use debugger
 gem 'debugger'
+gem 'paperclip'
