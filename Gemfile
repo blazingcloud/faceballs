@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'devise'
 gem 'thin'
+gem 'carrierwave'
+gem 'cloudinary'
 
 gem 'haml-rails'
 gem 'erb2haml'
