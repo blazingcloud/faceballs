@@ -1,4 +1,4 @@
-class FaceballsController < ApplicationController
+class UsersController < ApplicationController
 
   def index
     # Right now we're showing all users
