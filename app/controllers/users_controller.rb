@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_filter :authenticate_user!, except: [:index, :show]
   def index
     # Right now we're showing all users
     @users = User.all
