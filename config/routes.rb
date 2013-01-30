@@ -11,7 +11,7 @@ Faceballs::Application.routes.draw do
 
   resources :users do
     member do
-      put :mercury_update
+      post :mercury_update
     end
   end
 

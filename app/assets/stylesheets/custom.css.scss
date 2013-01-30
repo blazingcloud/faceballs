@@ -111,9 +111,21 @@ form label {
   font-weight: bold;
 }
 
-.faceball{}
-.gravatar{
-  display: block;
+#container {
+  width: 960px;
+  height: 1200px;
 }
-#username{ font-weight: bold; }
-#radius{ color: blue; }
+
+.faceball{
+  position: absolute;
+}
+
+.gravatar{
+}
+
+#username{ 
+  font-weight: bold; 
+}
+#radius{ 
+  color: blue; 
+}
