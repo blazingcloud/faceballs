@@ -6,10 +6,10 @@ development:
  callback_url: http://localhost:3000/
 test:
  app_id:  480369135332956
- secret_key: 1e5f7c77d23958c5606bb9971cbf0f08
+ app_secret: 1e5f7c77d23958c5606bb9971cbf0f08
  callback_url: http://localhost:3000/
 production:
  # app_id for deployment to heroku
  app_id:  602888399727043
- secret_key: 35f8f1940afdb84397a3b979c5ff0599
+ app_secret: 35f8f1940afdb84397a3b979c5ff0599
  callback_url: http://faceballs.herokuapp.com/
