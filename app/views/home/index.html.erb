@@ -1,0 +1,20 @@
+<h1>Blazing Cloud Rails Template Application</h1>
+<div class="row twelve columns centered">
+  <div class="example">
+    <% if is_editing? %>
+    <p class="radius label">Drag images into the box below!</p>
+    <% end %>
+    <br/>
+    <br/>
+    <%=	image_content 'image', image_path("blazingcloud.png") %>
+  </div>
+  <div class="example">
+    <%=	rich_content 'rich text' do %>Rich text goes here.<% end %>
+  </div>
+  <div class="example">
+    <%=	plain_content 'plain text' do %>Plain text goes here<% end %>
+  </div>
+  <div class="example">
+    <%=	markdown_content 'markdown' do %>Markdown goes here<% end %>
+  </div>
+</div>
