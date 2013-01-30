@@ -5,9 +5,15 @@ Faceballs::Application.routes.draw do
 
   mount Mercury::Engine => '/'
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   match '/save', to: 'users#mercury_update'
+
+  resources :users do
+    member do
+      put :mercury_update
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
