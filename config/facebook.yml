@@ -11,5 +11,5 @@ test:
 production:
  # app_id for deployment to heroku
  app_id:  602888399727043
- app_secret: 35f8f1940afdb84397a3b979c5ff0599
+ app_secret: 92ef387123b40ae8120975439ebba80d
  callback_url: http://faceballs.herokuapp.com/
