@@ -1,8 +1,27 @@
+%ul.nav.nav-tabs#myTab
+  %li.active
+    %a{:href => "#users"} Users
+  -if signed_in?
+    %li
+      %a{:href => "#my_friends"} My Friends 
+
 #container
-  -if @users
-    = render @users
+  .tab-content
+    %div.tab-pane.active#users
+      -if @users
+        = render @users
+    %div.tab-pane#my_friends
+      -if @fb_friends
+        -if @fb_friends.any?
+          - @fb_friends.each do |fb_friend|
+            .friendball
+              .gravatar
+                = facebook_profile_image_tag(fb_friend[:uid] + '.jpg', :width => fb_friend[:diameter], :height => fb_friend[:diameter], :crop => :fill, :gravity => :north_west, :radius => 'max', :border => '3px_solid_black', :alt => "facebook_profile")
+                .username
+                  = fb_friend[:name]
 
-  -if @fb_friends
-    = puts @fb_friends
-
-  
+:javascript
+  $('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });

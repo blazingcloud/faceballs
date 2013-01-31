@@ -1,10 +1,10 @@
-.faceball
+.userball
   .gravatar
-    = facebook_profile_image_tag(user.username + '.jpg', :width => user.radius, :height => user.radius, :crop => :fill, :gravity => :north_west, :radius => 'max', :border => '3px_solid_black', :background => 'rgb:fff', :alt => "facebook_profile")
+    = facebook_profile_image_tag(user.username + '.jpg', :width => user.diameter, :height => user.diameter, :crop => :fill, :gravity => :north_west, :radius => 'max', :border => '3px_solid_black', :background => 'rgb:fff', :alt => "facebook_profile")
     = content_tag_for(:div, user) do
       .username
         = user.username
       %div{:id => "#{user.id}", :class=> "radius", "data-mercury" => "full"}
-        = user.radius
+        = user.diameter
 
 

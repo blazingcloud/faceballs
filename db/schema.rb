@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131014836) do
+ActiveRecord::Schema.define(:version => 20130131191230) do
 
   create_table "mercury_images", :force => true do |t|
     t.string   "image_file_name"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(:version => 20130131014836) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
-    t.integer  "radius"
     t.string   "provider"
     t.string   "uid"
     t.string   "token"
+    t.integer  "diameter",               :default => 60
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
