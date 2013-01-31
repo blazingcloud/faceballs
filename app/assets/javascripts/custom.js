@@ -6,6 +6,7 @@
         container = $('#container'),
         width = container.width(),
         height = container.height(),
+        left = container.position().left,
         angle = 0,
         step = (2*Math.PI) / faceballs.length;
 
@@ -13,7 +14,7 @@
         var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2),
             y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
         $(this).css({
-            left: x + 'px',
+            left: x+left + 'px',
             top: y + 'px'
         });
         angle += step;

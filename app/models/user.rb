@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
+      user.token = auth.credentials.token
       user.username = auth.info.nickname
       user.email = auth.info.email
     end
@@ -46,8 +47,12 @@ class User < ActiveRecord::Base
 
   #If user has fb auth, it returns user's fb_graph object
   def fb_graph
-    auth = self.authentications.find_by_provider("facebook")
-    auth.nil? ? nil : FbGraph::User.me(auth.token)
+    puts self.inspect
+    if !self.provider.nil? && !self.token.nil? 
+      FbGraph::User.me(self.token)
+    else
+      nil
+    end
   end
-  
+
 end

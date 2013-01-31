@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     # Right now we're showing all users
     @users = User.all
 
+    if user_signed_in?
+      @fb_friends = current_user.fb_graph.friends if current_user.fb_graph
+    end
+
     respond_to do |format|
       format.js
       format.html
