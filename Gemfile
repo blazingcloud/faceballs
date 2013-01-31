@@ -8,6 +8,7 @@ gem 'mercury-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'fb_graph'
 
 gem 'haml-rails'
 gem 'erb2haml'
@@ -21,6 +22,7 @@ gem 'jquery-ui-rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'sqlite3', '1.3.5', :require => 'sqlite3'
   gem 'rspec-rails', '~> 2.11.0'
   gem 'annotate', ">=2.5.0"

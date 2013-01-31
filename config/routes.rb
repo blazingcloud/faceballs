@@ -7,10 +7,10 @@ Faceballs::Application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
-  match '/save', to: 'users#mercury_update'
+  match '/mercury_update', to: 'users#mercury_update'
 
   resources :users do
-    member do
+    collection do
       post :mercury_update
     end
   end

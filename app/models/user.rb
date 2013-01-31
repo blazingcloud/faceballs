@@ -43,4 +43,11 @@ class User < ActiveRecord::Base
       super
     end
   end
+
+  #If user has fb auth, it returns user's fb_graph object
+  def fb_graph
+    auth = self.authentications.find_by_provider("facebook")
+    auth.nil? ? nil : FbGraph::User.me(auth.token)
+  end
+  
 end

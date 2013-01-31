@@ -11,7 +11,18 @@ class UsersController < ApplicationController
   end #end index
 
   def mercury_update
-    true
+    puts "here!!!"
+    users = params[:content]
+    puts users.inspect
+    users.each do |id, datum|
+      u = User.find(id)
+      if u
+        if datum[:value].is_a? Integer
+          u.radius = datum[:value]
+          u.save
+        end
+      end
+    end
     render text: ""
   end
 end
