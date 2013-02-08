@@ -37,7 +37,16 @@ class UsersController < ApplicationController
             u.save
           end
         else
-          u.description = datum[:value]
+          # replace any images with cloudinary uploaded pics
+          puts datum[:value].inspect
+          doc = Nokogiri::HTML(datum[:value])
+          doc.css("img").each { |i|  
+            img_path = "#{Rails.root}/public#{i.get_attribute("src").split("?")[0]}"
+            cl_img_path = Cloudinary::Uploader.upload(img_path)
+            puts cl_img_path["url"]
+            i.set_attribute("src", cl_img_path["url"]) 
+          }
+          u.description = doc.to_html 
           u.save
         end
       end

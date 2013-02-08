@@ -9,6 +9,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'fb_graph'
+gem 'nokogiri'
 
 gem 'haml-rails'
 gem 'erb2haml'
