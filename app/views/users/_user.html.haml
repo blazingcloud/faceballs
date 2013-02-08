@@ -4,7 +4,7 @@
     = content_tag_for(:div, user) do
       .username
         = user.username
-      %div{:id => "#{user.id}", :class=> "radius", "data-mercury" => "full"}
+      %div{:id => "#{user.id}:radius", "data-mercury" => "full",  :data => "radius" }  
         = user.diameter
-
-
+      %div{:id => "#{user.id}:description", "data-mercury" => "full", :data => "description" }
+        = user.description.nil? ? "" : user.description.html_safe

@@ -25,12 +25,19 @@ class UsersController < ApplicationController
 
   def mercury_update
     users = params[:content]
-    users.each do |id, datum|
+    users.each do |key, datum|
+      (id, field) = key.split(":")
+      puts "#{id} #{field}"
       u = User.find(id)
       if u
-        puts u.inspect
-        if datum[:value].to_i > 0
-          u.diameter = datum[:value]
+        puts datum.inspect
+        if field == "radius"
+          if datum[:value].to_i > 0
+            u.diameter = datum[:value]
+            u.save
+          end
+        else
+          u.description = datum[:value]
           u.save
         end
       end
