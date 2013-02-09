@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       (id, field) = key.split(":")
       u = User.find(id)
       if u
-        if field == "radius"
+        if field == "diameter"
           #update radius field of user
           if datum[:value].to_i > 0
             u.diameter = datum[:value]
