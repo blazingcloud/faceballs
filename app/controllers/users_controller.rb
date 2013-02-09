@@ -27,25 +27,25 @@ class UsersController < ApplicationController
     users = params[:content]
     users.each do |key, datum|
       (id, field) = key.split(":")
-      puts "#{id} #{field}"
       u = User.find(id)
       if u
-        puts datum.inspect
         if field == "radius"
+          #update radius field of user
           if datum[:value].to_i > 0
             u.diameter = datum[:value]
             u.save
           end
         else
           # replace any images with cloudinary uploaded pics
-          puts datum[:value].inspect
           doc = Nokogiri::HTML(datum[:value])
-          doc.css("img").each { |i|  
-            img_path = "#{Rails.root}/public#{i.get_attribute("src").split("?")[0]}"
-            cl_img_path = Cloudinary::Uploader.upload(img_path)
-            puts cl_img_path["url"]
-            i.set_attribute("src", cl_img_path["url"]) 
-          }
+          doc.css("img").each do |i|
+            img_path = i.get_attribute("src").split("?")[0]
+            if /system\/images/.match(img_path) 
+              img_path = "#{Rails.root}/public#{i.get_attribute("src").split("?")[0]}"
+              cl_img_path = Cloudinary::Uploader.upload(img_path)
+              i.set_attribute("src", cl_img_path["url"]) 
+            end
+          end
           u.description = doc.to_html 
           u.save
         end
